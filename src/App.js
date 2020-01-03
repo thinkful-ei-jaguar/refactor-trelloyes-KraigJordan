@@ -47,7 +47,9 @@ class App extends Component {
 
 
   }
-
+  handleDeleteItem(){
+    console.log('handle delete item called');
+  }
 
 
   render() {
@@ -60,6 +62,7 @@ class App extends Component {
         <div className='App-list'>
           {this.state.lists.map(list => (
             <List
+            onDeleteItem={this.handleDeleteItem}
               key={list.id}
               header={list.header}
               cards={list.cardIds.map(id => this.state.allCards[id])}
