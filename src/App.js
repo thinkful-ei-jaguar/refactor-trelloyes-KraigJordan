@@ -56,6 +56,7 @@ class App extends Component {
 const newRandomCard = () => {
   const id = Math.random().toString(36).substring(2, 4)
     + Math.random().toString(36).substring(2, 4);
+    console.log("this is the id", id)
   return {
     id,
     title: `Random Card ${id}`,
@@ -78,9 +79,10 @@ return list;
   )
 
   this.setState({
-    list: addItem
+    lists: addItem,
+    allCards:{...this.state.allCards, [newCard.id]:newCard}
     })
-
+console.log("this is the final state",this.state)
  }
  
 
