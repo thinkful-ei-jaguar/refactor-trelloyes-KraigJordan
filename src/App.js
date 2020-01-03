@@ -47,6 +47,44 @@ class App extends Component {
 
 
   }
+  
+   
+
+ handleNewRandomCard= (listId) =>{
+ console.log(listId);
+
+const newRandomCard = () => {
+  const id = Math.random().toString(36).substring(2, 4)
+    + Math.random().toString(36).substring(2, 4);
+  return {
+    id,
+    title: `Random Card ${id}`,
+    content: 'lorem ipsum',
+  }
+}
+
+
+
+const newCard = newRandomCard();
+
+ const addItem = this.state.lists.map(list=>{
+     if (list.id===listId){
+     //const newList= list.id;
+  return  { ...list, cardIds:[...list.cardIds,newCard.id]};
+
+  }
+return list;
+  }
+  )
+
+  this.setState({
+    list: addItem
+    })
+
+ }
+ 
+
+
   handleDeleteItem = (cardId) =>{
    // const {lists, allCards}= this.state;
     console.log('handle delete item called', cardId );
@@ -70,8 +108,10 @@ class App extends Component {
         <div className='App-list'>
           {this.state.lists.map(list => (
             <List
+            onNewCard={this.handleNewRandomCard}
             onDeleteItem={this.handleDeleteItem}
               key={list.id}
+              id ={list.id}
               header={list.header}
               cards={list.cardIds.map(id => this.state.allCards[id])}
             />

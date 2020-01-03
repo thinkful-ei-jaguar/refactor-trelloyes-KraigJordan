@@ -19,6 +19,8 @@ export default function List(props) {
           />
         )}
         <button
+        onClick= {()=> props.onNewCard(props.id)}
+
           type='button'
           className='List-add-button'
         >
