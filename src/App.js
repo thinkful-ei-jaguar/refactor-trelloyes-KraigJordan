@@ -47,8 +47,9 @@ class App extends Component {
 
 
   }
-  handleDeleteItem(){
-    console.log('handle delete item called');
+  handleDeleteItem(id){
+    
+    console.log('handle delete item called',{ id });
   }
 
 
