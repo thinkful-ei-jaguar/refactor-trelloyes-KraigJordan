@@ -47,10 +47,17 @@ class App extends Component {
 
 
   }
-  handleDeleteItem(id){
+  handleDeleteItem = (cardId) =>{
+   // const {lists, allCards}= this.state;
+    console.log('handle delete item called', cardId );
+    const newLists = this.state.lists.map(list=> ({ ...list, cardIds:list.cardIds.filter(eachCardId=>eachCardId !== cardId )})  )
+  
     
-    console.log('handle delete item called',{ id });
-  }
+   this.setState({
+     lists:newLists
+   })
+   
+}
 
 
   render() {
