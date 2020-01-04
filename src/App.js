@@ -59,7 +59,7 @@ const newRandomCard = () => {
     console.log("this is the id", id)
   return {
     id,
-    title: `Random Card ${id}`,
+    title: `${id}`,
     content: 'lorem ipsum',
   }
 }
